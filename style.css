@@ -96,7 +96,7 @@ body {
 .tileBack {
 	display: flex;
 	justify-content: center;
-    align-items: center;
+	align-items: center;
 	border-radius: 5%;
 	position: absolute;
 	top: 0;

@@ -1,4 +1,7 @@
 let startButton = document.querySelector(".startButton");
+let counter = document.querySelector(".counter");
+let count = 0;
+counter.innerText = "0 moves";
 startButton.addEventListener("click", gameStart);
 let board = document.querySelector(".board");
 tileCreator();
@@ -18,12 +21,14 @@ function tileCreator() {
 		tile.appendChild(tileBack);
 		board.appendChild(tile);
 		tile.onclick = function () {
+			count += 1;
+			counter.innerText = count > 1 ? `${count} moves` : `${count} move`;
 			tile.classList.toggle("flipped");
 		};
 	}
 }
 function gameStart() {
-	startButton.style = 'background-color:darkgrey; color: grey';
+	startButton.style = "background-color:darkgrey; color: grey";
 	startButton.removeEventListener("click", gameStart);
 	let timer = document.querySelector("#elapsed-time");
 	let startTime = 0;
@@ -32,5 +37,5 @@ function gameStart() {
 		const currentTime = new Date().getTime();
 		const elapsedTime = (currentTime - startTime) / 1000;
 		timer.innerText = Math.round(elapsedTime);
-	},1000);
+	}, 1000);
 }
