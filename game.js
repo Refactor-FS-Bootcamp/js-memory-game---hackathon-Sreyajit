@@ -30,6 +30,7 @@ function tileCreator() {
 		let tileFront = document.createElement("div");
 		let tileBack = document.createElement("div");
 		tile.className = "tile";
+		tile.id= `${randomNumber}`;
 		tileFront.className = "tileFront";
 		tileBack.className = "tileBack";
 		let Image = document.createElement("img");
