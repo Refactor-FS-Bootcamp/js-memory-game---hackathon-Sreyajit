@@ -17,6 +17,7 @@ let fruits = [
 	"./fruits/sugarcane.jpg",
 	"./fruits/watermelon.png",
 ];
+let tiles = [];
 let counter = document.querySelector(".counter");
 let count = 0;
 counter.innerText = "0 move";
@@ -30,7 +31,7 @@ function tileCreator() {
 		let tileFront = document.createElement("div");
 		let tileBack = document.createElement("div");
 		tile.className = "tile";
-		tile.id= `${randomNumber}`;
+		tile.id = `${randomNumber}`;
 		tileFront.className = "tileFront";
 		tileBack.className = "tileBack";
 		let Image = document.createElement("img");
@@ -40,15 +41,25 @@ function tileCreator() {
 		tile.appendChild(tileFront);
 		tile.appendChild(tileBack);
 		board.appendChild(tile);
-		tile.onclick = function () {
-			if (board.classList.contains("click-disabled") == false) {
-				tile.classList.toggle("flipped");
-				count += 1;
-				counter.innerText = count > 1 ? `${count} moves` : `${count} move`;
-			}
-		};
+		tiles[i] = tile;
+		if (tile.classList.contains("flipped") == false) {
+			tiles[i].onclick = function game() {
+				if (board.classList.contains("click-disabled") == false) {
+					tile.classList.add("flipped");
+					if (
+						tile.classList.contains("flipped") == true &&
+						tile.classList.contains("moveMade") == false
+					) {
+						tile.classList.add("moveMade");
+						count += 1;
+						counter.innerText = count > 1 ? `${count} moves` : `${count} move`;
+					}
+				}
+			};
+		}
 	}
 }
+
 function gameStart() {
 	board.className = "board";
 	startButton.style = "background-color:darkgrey; color: grey";
