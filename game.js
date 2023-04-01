@@ -54,6 +54,7 @@ function tileCreator() {
 						count += 1;
 						counter.innerText = count > 1 ? `${count} moves` : `${count} move`;
 					}
+					comparator(tiles[i]);
 				}
 			};
 		}
@@ -72,4 +73,14 @@ function gameStart() {
 		const elapsedTime = (currentTime - startTime) / 1000;
 		timer.innerText = Math.round(elapsedTime);
 	}, 1000);
+}
+function comparator(tile) {
+	for(i=0; i < tiles.length; i++) {
+		console.log(tiles[i]);
+		if(tile.id !== tiles[i].id && tiles[i].classlist.contains("moveMade")==true) {
+			tiles[i].classList.remove("flipped");
+			tiles[i].classList.remove("moveMade");
+		}
+	}
+
 }
