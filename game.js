@@ -21,13 +21,16 @@ function tileCreator() {
 		tile.appendChild(tileBack);
 		board.appendChild(tile);
 		tile.onclick = function () {
-			count += 1;
-			counter.innerText = count > 1 ? `${count} moves` : `${count} move`;
-			tile.classList.toggle("flipped");
+			if (board.classList.contains("click-disabled") == false) {
+				tile.classList.toggle("flipped");
+				count += 1;
+				counter.innerText = count > 1 ? `${count} moves` : `${count} move`;
+			}
 		};
 	}
 }
 function gameStart() {
+	board.className = "board";
 	startButton.style = "background-color:darkgrey; color: grey";
 	startButton.removeEventListener("click", gameStart);
 	let timer = document.querySelector("#elapsed-time");
