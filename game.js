@@ -1,5 +1,22 @@
 let startButton = document.querySelector(".startButton");
-let fruits = ["./fruits/pineapple.jpg"];
+let fruits = [
+	"./fruits/pineapple.jpg",
+	"./fruits/apple.jpg",
+	"./fruits/Banana.jpg",
+	"./fruits/DragonFruit.jpg",
+	"./fruits/guava.jpg",
+	"./fruits/jujube.jpg",
+	"./fruits/Kiwi.jpg",
+	"./fruits/longan.jpg",
+	"./fruits/mulberry.jpg",
+	"./fruits/orange.jpg",
+	"./fruits/papaya.jpg",
+	"./fruits/Plum.jpg",
+	"./fruits/raspberry.jpeg",
+	"./fruits/Soursoup.jpg",
+	"./fruits/sugarcane.jpg",
+	"./fruits/watermelon.png",
+];
 let counter = document.querySelector(".counter");
 let count = 0;
 counter.innerText = "0 move";
@@ -7,8 +24,8 @@ startButton.addEventListener("click", gameStart);
 let board = document.querySelector(".board");
 tileCreator();
 function tileCreator() {
-	for (let i = 0; i <15; i++) {
-		let randomNumber = Math.floor(Math.random() * 15)-1;
+	for (let i = 0; i <= 15; i++) {
+		let randomNumber = Math.floor(Math.random() * 15);
 		let tile = document.createElement("div");
 		let tileFront = document.createElement("div");
 		let tileBack = document.createElement("div");
@@ -17,7 +34,7 @@ function tileCreator() {
 		tileBack.className = "tileBack";
 		let Image = document.createElement("img");
 		Image.src = fruits[randomNumber];
-		Image.alt = "fruit";
+		Image.alt = "fruitNotFound";
 		tileBack.appendChild(Image);
 		tile.appendChild(tileFront);
 		tile.appendChild(tileBack);
