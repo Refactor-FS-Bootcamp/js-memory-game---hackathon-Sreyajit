@@ -73,10 +73,9 @@ function gameStart() {
 		timer.innerText = Math.round(elapsedTime);
 	}, 1000);
 }
-console.log(tiles);
 function comparator(tile) {
 	for (let i = 0; i < tiles.length; i++) {
-		if (tiles[i].classList.contains("flipped")) {
+		if (tiles[i].classList.contains("flipped") == true) {
 			if (tiles[i].id !== tile.id) {
 				setTimeout(() => {
 					tiles[i].classList.remove("flipped");
@@ -88,3 +87,4 @@ function comparator(tile) {
 		}
 	}
 }
+console.log(tiles);
