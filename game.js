@@ -53,6 +53,7 @@ function tileCreator() {
 						tile.classList.add("moveMade");
 						count += 1;
 						counter.innerText = count > 1 ? `${count} moves` : `${count} move`;
+						tile.classList.add("clicked");
 						comparator(tile);
 					}
 				}
@@ -75,16 +76,22 @@ function gameStart() {
 }
 function comparator(tile) {
 	for (let i = 0; i < tiles.length; i++) {
-		if (tiles[i].classList.contains("flipped") == true) {
+		if (tiles[i].classList.contains("flipped") == true && tiles[i].classList.contains("clicked")==false) {
 			if (tiles[i].id !== tile.id) {
 				setTimeout(() => {
-					tiles[i].classList.remove("flipped");
-					tiles[i].classList.remove("moveMade");
+					if (tiles[i].classList.contains("flipLocked") == false) {
+						tiles[i].classList.remove("flipped");
+						tiles[i].classList.remove("moveMade");
+					}
 					tile.classList.remove("flipped");
 					tile.classList.remove("moveMade");
 				}, 500);
+			} else {
+				tile.classList.add("flipLocked");
+				tiles[i].classList.add("flipLocked");
 			}
 		}
+		tiles[i].classList.remove("clicked");
 	}
 }
 console.log(tiles);
