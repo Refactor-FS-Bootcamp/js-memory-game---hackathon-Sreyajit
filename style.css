@@ -21,7 +21,7 @@ body {
 	display: flex;
 	flex-direction: row;
 	/* border: 5px solid red; */
-	width: 350px;
+	width: 500px;
 	height: 10%;
 	align-items: center;
 	gap: 5px;
@@ -33,7 +33,7 @@ body {
 	/* border: 5px solid red; */
 	border-radius: 7%;
 	width: 20%;
-	height: 50%;
+	height: 65%;
 	background-color: rgb(1, 22, 30);
 	color: antiquewhite;
 	font-weight: bolder;
@@ -72,8 +72,8 @@ body {
 		rgb(255, 234, 0)
 	);
 	background-repeat: no-repeat;
-	height: 50%;
-	width: 350px;
+	height: 500px;
+	width: 500px;
 	/* border: 5px solid blue; */
 	border-radius: 1%;
 	display: flex;

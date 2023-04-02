@@ -82,9 +82,9 @@ function comparator(tile) {
 					if (tiles[i].classList.contains("flipLocked") == false) {
 						tiles[i].classList.remove("flipped");
 						tiles[i].classList.remove("moveMade");
+						tile.classList.remove("flipped");
+						tile.classList.remove("moveMade");
 					}
-					tile.classList.remove("flipped");
-					tile.classList.remove("moveMade");
 				}, 500);
 			} else {
 				tile.classList.add("flipLocked");
