@@ -53,14 +53,13 @@ function tileCreator() {
 						tile.classList.add("moveMade");
 						count += 1;
 						counter.innerText = count > 1 ? `${count} moves` : `${count} move`;
+						comparator(tile);
 					}
-					comparator(tiles[i]);
 				}
 			};
 		}
 	}
 }
-
 function gameStart() {
 	board.className = "board";
 	startButton.style = "background-color:darkgrey; color: grey";
@@ -74,13 +73,21 @@ function gameStart() {
 		timer.innerText = Math.round(elapsedTime);
 	}, 1000);
 }
+console.log(tiles);
 function comparator(tile) {
-	for(i=0; i < tiles.length; i++) {
-		console.log(tiles[i]);
-		if(tile.id !== tiles[i].id && tiles[i].classlist.contains("moveMade")==true) {
-			tiles[i].classList.remove("flipped");
-			tiles[i].classList.remove("moveMade");
+	for (i = 0; i < tiles.length; i++) {
+		if (tiles[i].classList.contains("flipped")) {
+			tile.classList.add("flipped");
+			if (tile.id !== tiles[i].id) {
+				if (tiles[i].classList.contains("flipLocked") == false) {
+				}
+				setTimeout(function () {
+					tile.classList.remove("flipped");
+					tile.classList.remove("moveMade");
+				}, 500);
+			} else {
+				// tiles[i].classList.add("flipLocked");
+			}
 		}
 	}
-
 }
