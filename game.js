@@ -75,18 +75,15 @@ function gameStart() {
 }
 console.log(tiles);
 function comparator(tile) {
-	for (i = 0; i < tiles.length; i++) {
+	for (let i = 0; i < tiles.length; i++) {
 		if (tiles[i].classList.contains("flipped")) {
-			tile.classList.add("flipped");
-			if (tile.id !== tiles[i].id) {
-				if (tiles[i].classList.contains("flipLocked") == false) {
-				}
-				setTimeout(function () {
+			if (tiles[i].id !== tile.id) {
+				setTimeout(() => {
+					tiles[i].classList.remove("flipped");
+					tiles[i].classList.remove("moveMade");
 					tile.classList.remove("flipped");
 					tile.classList.remove("moveMade");
 				}, 500);
-			} else {
-				// tiles[i].classList.add("flipLocked");
 			}
 		}
 	}
